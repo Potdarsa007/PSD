@@ -48,7 +48,6 @@ public class User extends BaseEntity{
 	private long contactNumber;
 	@Enumerated(EnumType.STRING)
 	@Column(length = 20)
-	//@JsonIgnore
 	private Role role;
 	
 	@OneToOne(cascade=CascadeType.REMOVE)
