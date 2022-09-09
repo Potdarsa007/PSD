@@ -29,7 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @CrossOrigin(origins="http://localhost:3000")
 @RestController
-@RequestMapping("/api/psd1/admin")
+@RequestMapping("/api/psd/admin")
 @Slf4j
 public class AdminController {
 	
