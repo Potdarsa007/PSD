@@ -34,7 +34,7 @@ class AdminControllerTestusingRestTemplate {
 		ResponseEntity<User> response = template.getForEntity
 				("http://localhost:" + serverPort + "/api/psd/admin/10",User.class);
 		assertEquals(response.getStatusCode(),HttpStatus.OK);
-		assertEquals(response.getBody().getFirstName(),"swapnil");
+		assertEquals(response.getBody().getFirstName(),"Swapnil");
 	}
 	
 	@Test
