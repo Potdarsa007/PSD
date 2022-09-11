@@ -1,0 +1,380 @@
+{
+	"info": {
+		"_postman_id": "154de0f3-1f12-401d-b867-abeab9e01c5e",
+		"name": "PSD1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21163753"
+	},
+	"item": [
+		{
+			"name": "get admin_customer by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7070/api/psd/customer/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"customer",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"userEmail\":\"vb98989@gmail.com\",\r\n    \"oldPassword\":\"vb98989@\",\r\n    \"newPassword\":\"vrb98989@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7070/api/psd/admin/addprofession",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"admin",
+						"addprofession"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7070/api/psd/customer/delete/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"customer",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n\r\n{\r\n\"id\":\"6\",\r\n\"firstName\":\"Swapnil\",\r\n\"lastName\":\"potdar\",\r\n\"userEmail\":\"sp98989@gmail.com\",\r\n\"password\":\"sp98989@\",\r\n\"contactNumber\":\"8770300598\",\r\n\"role\":\"ADMIN\",\r\n \"address\": {\r\n     \"plotNumber\":\"6\",\r\n\"landmark\":\"mg nagar\",\r\n\"city\":\"nepa\",\r\n\"state\":\"mh\",\r\n\"pincode\":\"450331\"\r\n   \r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7070/api/psd/customer/newaccount",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"customer",
+						"newaccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add profession",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"professionName\":\"painter\",\r\n\"basicCharge\":\"2200\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7070/api/psd/admin/addprofession",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"admin",
+						"addprofession"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7070/api/psd/admin/getallcustomers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"admin",
+						"getallcustomers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"firstName\":\"Swapnil\",\r\n\"lastName\":\"potdar\",\r\n\"empEmail\":\"sp98989@gmail.com\",\r\n\"password\":\"sp98989@\",\r\n\"contactNumber\":\"8770300598\",\r\n\"experience\":\"2\",\r\n\"professionName\":\"painter\",\r\n\"basicCharge\":\"2200\",\r\n\"plotNumber\":\"7\",\r\n\"landmark\":\"sardar vallabh marg\",\r\n\"city\":\"indore\",\r\n\"state\":\"mp\",\r\n\"pincode\":\"450331\"\r\n   \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7070/api/psd/employee/addnewemployee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"employee",
+						"addnewemployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete employee by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7070/api/psd/employee/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"employee",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "for getting pending orders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"2\",\r\n\"firstName\":\"Swapnil\",\r\n\"lastName\":\"potdar\",\r\n\"empEmail\":\"sp98989@gmail.com\",\r\n\"password\":\"sp98989@\",\r\n\"contactNumber\":\"8770300598\",\r\n\"experience\":\"2\",\r\n\"professionName\":\"painter\",\r\n\"basicCharge\":\"2200\",\r\n\"plotNumber\":\"9\",\r\n\"landmark\":\"vallabh marg\",\r\n\"city\":\"bhopal\",\r\n\"state\":\"mh\",\r\n\"pincode\":\"450331\"\r\n   \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7070/api/psd/employee/pendingorders/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"employee",
+						"pendingorders",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get employee details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7070/api/psd/employee/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"employee",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userEmail\":\"vb98989@gmail.com\",\r\n    \"password\":\"vrb98989@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7070/api/psd/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all professions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7070/api/psd/user/getallprofessions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"user",
+						"getallprofessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Charges with respect to Profession",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7070/api/psd/user/getbasiccharge/painter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"user",
+						"getbasiccharge",
+						"painter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "forgetpassword",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7070/api/psd/user/forgetpassword/vb98989@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"api",
+						"psd",
+						"user",
+						"forgetpassword",
+						"vb98989@gmail.com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
