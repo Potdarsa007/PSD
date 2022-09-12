@@ -34,6 +34,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserController {
 
 	Logger log = LoggerFactory.getLogger(UserController.class);
+
 	
 	@Autowired
 	IUserService cust_service;

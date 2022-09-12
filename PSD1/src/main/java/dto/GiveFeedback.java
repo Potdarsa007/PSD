@@ -47,6 +47,7 @@ public class GiveFeedback{
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
+
 	
 	
 }

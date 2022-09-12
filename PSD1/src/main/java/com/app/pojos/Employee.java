@@ -44,6 +44,9 @@ public class Employee extends BaseEntity{
 	@Email
 	@Column(length=30,name="emp_email",unique=true,nullable=false)
 	private String empEmail;
+	//@Pattern(regexp = "((?=.*\\d)(?=.*[a-z])(?=.*[#@$*]).{5,20})", message = "Blank or Invalid password")
+	//@Column(length = 20, nullable = false)
+	//private String password;
 	
 	@NotNull
 	@Column(name="contact_number")

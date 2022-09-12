@@ -26,10 +26,12 @@ public class AuthenticateUser {
 		private String password;
 		
 		
+		
 		public AuthenticateUser() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
+
 
 
 		public AuthenticateUser(@NotBlank @Email String userEmail,
@@ -40,9 +42,11 @@ public class AuthenticateUser {
 		}
 
 
+
 		public String getUserEmail() {
 			return userEmail;
 		}
+
 
 
 		public void setUserEmail(String userEmail) {
@@ -50,14 +54,17 @@ public class AuthenticateUser {
 		}
 
 
+
 		public String getPassword() {
 			return password;
 		}
 
 
+
 		public void setPassword(String password) {
 			this.password = password;
 		}
+
 
 
 		@Override

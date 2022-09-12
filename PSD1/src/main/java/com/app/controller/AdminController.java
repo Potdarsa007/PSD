@@ -32,9 +32,9 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/api/psd/admin")
 @Slf4j
 public class AdminController {
-	
+
 	Logger log = LoggerFactory.getLogger(AdminController.class);
-	
+
 	@Autowired
 	private IAdminService adminService;
 	

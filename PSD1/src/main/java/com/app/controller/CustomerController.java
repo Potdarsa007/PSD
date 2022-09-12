@@ -1,9 +1,11 @@
 package com.app.controller;
 
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 import javax.validation.Valid;
 
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,7 @@ import com.app.pojos.OrderStatus;
 import com.app.pojos.User;
 import com.app.service.IAdminService;
 import com.app.service.IUserService;
+import com.razorpay.RazorpayClient;
 
 import dto.BookService;
 import dto.GiveFeedback;
@@ -39,6 +42,7 @@ import lombok.extern.slf4j.Slf4j;
 public class CustomerController {
 
 	Logger log = LoggerFactory.getLogger(CustomerController.class);
+
 	
 	@Autowired
 	IUserService cust_service;
@@ -57,18 +61,43 @@ public class CustomerController {
 			return ResponseEntity.status(HttpStatus.OK).body(cust);
 	}
 	
+	@PostMapping("/order")
+	public String createOrder(@RequestBody Map<String ,Object> data) throws Exception {
+		System.out.println(data);
+		System.out.println("hey order creating!!!!");
+		int amt=Integer.parseInt(data.get("amount").toString());
+		var client=new RazorpayClient("rzp_test_h3M6Y3VVHWy4oR", "wU8o0qnNBBrjOUmC4N7DKTuM");
+		
+		
+		JSONObject options = new JSONObject();
+		options.put("amount", amt*100);
+		options.put("currency", "INR");
+		options.put("receipt", "txn_123456");
+		//creating an order
+		com.razorpay.Order order = client.Orders.create(options);
+		System.out.println(order);
+		
+		return order.toString();
+	}
+	
+	
 	@PostMapping("/newaccount")
 	public ResponseEntity<?> createNewCustomerAccount(@RequestBody @Valid User cust)
 	{
 		SimpleMailMessage msg = new SimpleMailMessage();
 		User customer=cust_service.insertNewCustomer(cust);
 		log.info("Customer details :: "+customer);
+		//c.f. implements future and completion stage
+		//two methods in c.f. runAsync and supplyAsync
+		//runAsync takes runnable object
+		//runAsyn-->Returns a new CompletableFuture that is asynchronously completed by a task running in the ForkJoinPool.commonPool() after it runs the given action.
 		CompletableFuture<Void> future=CompletableFuture.runAsync(()->
 		{
 		msg.setTo(customer.getUserEmail());
 		msg.setSubject("Account created Succeffully");
 		msg.setText("Dear "+customer.getFirstName()+" "+customer.getLastName() +", \n Your account is Successfully created. Welcome to the team.\n\nRegards\n ServiceJunction");
 		javasender.send(msg);
+		log.info("msg "+msg);
 		});
 		return ResponseEntity.status(HttpStatus.OK).body(customer);
 	}

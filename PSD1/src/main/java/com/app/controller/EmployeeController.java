@@ -35,6 +35,7 @@ import lombok.extern.slf4j.Slf4j;
 public class EmployeeController {
 	
 	Logger log = LoggerFactory.getLogger(EmployeeController.class);
+
 	
 	@Autowired
 	IEmployeeService empService;
@@ -83,7 +84,7 @@ public class EmployeeController {
 		log.info("Employee updated details :: "+employee);
 		msg.setTo(employee.getEmpEmail());
 		msg.setSubject("Account updated Succeffully");
-		msg.setText("Dear "+emp.getFirstName()+" "+emp.getLastName() +", \n Your account is Successfully updated.\n\nRegards\n PSD");
+		msg.setText("Dear "+emp.getFirstName()+" "+emp.getLastName() +", \n Your account is Successfully updated.\n\nRegards\n ServiceJunction");
 		javasender.send(msg);
 		return ResponseEntity.status(HttpStatus.OK).body(emp);
 	}
