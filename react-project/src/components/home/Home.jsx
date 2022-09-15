@@ -1,6 +1,6 @@
 import React from 'react'
 import ac from '../../images/ac.jpg'
-import ref from '../../imgaes/ref.jpg'
+import ref from '../../images/ref.jpg'
 import painting from '../../images/paint.jpg'
 import housekeeping from '../../images/housekeeping.jpg'
 import PestControl from '../../images/pest.jpg'
