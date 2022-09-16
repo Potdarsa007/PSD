@@ -3,8 +3,9 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 import Home from "../components/home/Home";
 import "../components/home/Home.css";
-import logo from "../images/logo.png";
 import Footer from "./Footer";
+import NotAuthorized from "./NotAuthorized";
+import logo from "../images/logo.png";
 
 const Navigation = () => {
   const myuserobj = localStorage.getItem("user");
