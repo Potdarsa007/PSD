@@ -1,0 +1,78 @@
+body {
+    background: #f7f7f7;
+  }
+  .contactUs-wrapper {
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
+  }
+  
+  .form-box {
+    background-color: #fff;
+    min-width: 450px;
+    min-height: 450px;
+    padding: 40px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+      rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+  
+  h1,
+  p {
+    text-align: center;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+  }
+  #name,
+  #email,
+  #message,
+  #mybutton {
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+  .name {
+    color: #4f4e4e;
+    font-size: 16px;
+    text-align: center;
+  }
+  .input {
+    height: 22px;
+    font-size: 10px;
+    outline: none;
+    width: 100%;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: 2px solid black;
+    padding-bottom: 10px;
+  
+  }
+  .contactUs-submit {
+    display: flex;
+    text-transform: uppercase;
+    font-size: 20px;
+    border-radius: 25px;
+    color: white;
+    padding: 15px 150px;
+    background: linear-gradient(to right, #1d2fcf, #6b07f8);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+      rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    margin-left: auto;
+    margin-right: auto;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.1s;
+    text-align: center;
+  }
+  button:active {
+    transform: translateY(2px);
+  }
+  
