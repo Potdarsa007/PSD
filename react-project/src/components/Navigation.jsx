@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+import Contact from "./Contact";
 import Home from "../components/home/Home";
 import Login from "./login/Login";
 import "../components/home/Home.css";
 import Footer from "./Footer";
+import BookServices from "./BookServices";
+import FeedbackForm from "./FeedbackForm";
+import RegisterEmp from "./employee/RegisterEmp";
 import NotAuthorized from "./NotAuthorized";
 import logo from "../images/logo.png";
 
@@ -94,6 +98,13 @@ const Navigation = () => {
           <div>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/bookservice" element={<BookServices />} />
+                <Route path="/feedback" element={<FeedbackForm />} />
+                <Route
+                  path="/api/psd/employee"
+                  element={<RegisterEmp />}
+                />
             </Routes>
           </div>
           <Footer />  
