@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 import Home from "../components/home/Home";
+import Login from "./login/Login";
 import "../components/home/Home.css";
 import Footer from "./Footer";
 import NotAuthorized from "./NotAuthorized";
