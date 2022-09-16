@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 import Home from "../components/home/Home";
 import "../components/home/Home.css";
 import logo from "../images/logo.png";
+import Footer from "./Footer";
 
 const Navigation = () => {
   const myuserobj = localStorage.getItem("user");
@@ -92,7 +93,8 @@ const Navigation = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
             </Routes>
-          </div>  
+          </div>
+          <Footer />  
         </div>
       </BrowserRouter>
     </div>
