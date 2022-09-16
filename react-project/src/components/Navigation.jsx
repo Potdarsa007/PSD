@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import BookServices from "./BookServices";
 import FeedbackForm from "./FeedbackForm";
 import RegisterEmp from "./employee/RegisterEmp";
+import ForgetPassword from "./ForgetPassword.jsx";
 import NotAuthorized from "./NotAuthorized";
 import logo from "../images/logo.png";
 
@@ -105,6 +106,10 @@ const Navigation = () => {
                   path="/api/psd/employee"
                   element={<RegisterEmp />}
                 />
+                <Route
+                  path="/api/psd/forgetpassword"
+                  element={<ForgetPassword />}
+              />
             </Routes>
           </div>
           <Footer />  
