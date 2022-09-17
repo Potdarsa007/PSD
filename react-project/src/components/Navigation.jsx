@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 import About from "./About";
 import Contact from "./Contact";
 import Home from "../components/home/Home";
+import Register from "../components/register/RegisterForm";
 import Login from "./login/Login";
 import "../components/home/Home.css";
 import Footer from "./Footer";
@@ -103,6 +104,10 @@ const Navigation = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route
+                  path="/api/psd/register"
+                  element={<Register />}
+                />
                 <Route path="/bookservice" element={<BookServices />} />
                 <Route path="/feedback" element={<FeedbackForm />} />
                 <Route
