@@ -8,6 +8,7 @@ import Login from "./login/Login";
 import "../components/home/Home.css";
 import Footer from "./Footer";
 import BookServices from "./BookServices";
+import ErrorPage from "./error/ErrorPage";
 import FeedbackForm from "./FeedbackForm";
 import RegisterEmp from "./employee/RegisterEmp";
 import ForgetPassword from "./ForgetPassword.jsx";
