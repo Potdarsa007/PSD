@@ -117,7 +117,9 @@ const Navigation = () => {
                 <Route
                   path="/api/psd/forgetpassword"
                   element={<ForgetPassword />}
-              />
+                />
+                {userobj && (user.role=="ADMIN")?<Route path="addprofession" element={<AddProfession />} />:<Route path="addprofession" element={<NotAuthorized />} />}
+                <Route path="*" element={<ErrorPage />} />
             </Routes>
           </div>
           <Footer />  
