@@ -14,7 +14,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>PSD1</name>
-	<description>Spring Boot Backend Service Junction</description>
+	<description>PSD Spring Boot Backend</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
