@@ -6,12 +6,14 @@ import Contact from "./Contact";
 import Home from "../components/home/Home";
 import Register from "../components/register/RegisterForm";
 import Login from "./login/Login";
+import UserHome from "./user/UserHome";
 import "../components/home/Home.css";
 import Footer from "./Footer";
 import BookServices from "./BookServices";
 import ErrorPage from "./error/ErrorPage";
 import FeedbackForm from "./FeedbackForm";
 import RegisterEmp from "./employee/RegisterEmp";
+import AddProfession from "./user/AddProfession";
 import ForgetPassword from "./ForgetPassword.jsx";
 import NotAuthorized from "./NotAuthorized";
 import logo from "../images/logo.png";
@@ -108,6 +110,14 @@ const Navigation = () => {
                   path="/api/psd/register"
                   element={<Register />}
                 />
+                <Route path="/api/psd/user" element={<Login />} />
+                {userobj && (user.role=="ADMIN" | user.role=="CUSTOMER")?<Route
+                  path="/api/psd/user/Profile"
+                  element={<UserHome />}
+                />:<Route
+                path="/api/psd/user/Profile"
+                element={<Login />}
+              />}
                 <Route path="/bookservice" element={<BookServices />} />
                 <Route path="/feedback" element={<FeedbackForm />} />
                 <Route
