@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+import About from "./About";
 import Contact from "./Contact";
 import Home from "../components/home/Home";
 import Login from "./login/Login";
@@ -99,6 +100,7 @@ const Navigation = () => {
           <div>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/bookservice" element={<BookServices />} />
                 <Route path="/feedback" element={<FeedbackForm />} />
