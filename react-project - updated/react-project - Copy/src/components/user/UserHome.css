@@ -1,0 +1,20 @@
+.side-panel{
+    background-color: rgb(23, 23, 71);
+    font-weight:bold;
+    font-size:large;
+    min-height: 640px;
+    color: white;
+}
+.myline{
+    border-top:3px solid white
+}
+.myline2{
+    border-top:3px dashed rgb(107, 107, 183)
+}
+
+.mynav{
+    background-color: rgb(23, 23, 71);
+}
+.nav-link{
+    color: white;
+}

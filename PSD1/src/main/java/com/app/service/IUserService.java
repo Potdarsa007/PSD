@@ -45,4 +45,6 @@ public interface IUserService {
 	public double getBasics(String professionName);
 	
 	public String contactUsDetailsSave(ContactUs contactus);
+
+	Order PayService(int orderId);
 }

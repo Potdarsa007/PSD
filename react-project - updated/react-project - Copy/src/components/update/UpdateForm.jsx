@@ -1,34 +1,31 @@
 import React, { useState,useEffect } from "react";
 import validation from "./validation";
-import custService from "../../services/customer.service";
+import userService from "../../services/user.service";
 import { useNavigate } from 'react-router-dom';
 import "./style.css";
 
 const RegisterForm = () => {
   const navigate=useNavigate();
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [contactNumber, setContactNumber] = useState("");
-  const [userEmail, setUserEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [plotNumber, setPlotNumber] = useState("");
-  const [landmark, setLandmark] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [pincode, setPincode] = useState("");
-  const [role, setRole] = useState("CUSTOMER");
-
-  const [errors, setErrors] = useState({});
+  const userobj=localStorage.getItem('user');
+  const myuser=JSON.parse(userobj);
+  const id=myuser.id;
+  const [firstName, setFirstName] = useState(myuser.firstName);
+  const [lastName, setLastName] = useState(myuser.lastName);
+  const [contactNumber, setContactNumber] = useState(myuser.contactNumber);
+  const [userEmail, setUserEmail] = useState(myuser.userEmail);
+  const password = myuser.password;
+  const [plotNumber, setPlotNumber] = useState(myuser.address.plotNumber);
+  const [landmark, setLandmark] = useState(myuser.address.landmark);
+  const [city, setCity] = useState(myuser.address.city);
+  const [state, setState] = useState(myuser.address.state);
+  const [pincode, setPincode] = useState(myuser.address.pincode);
+  const [role, setRole] = useState(myuser.role);
+    const [errors, setErrors] = useState({});
   const [dataIsCorrect, setDataIsCorrect] = useState(false);
   const [dataAdded, setDataAdded] = useState('');
-
-  const sleep=(milliseconds)=>{
-    return new Promise(resolve=>setTimeout(resolve,milliseconds))
-  }
-
   const address = { plotNumber, landmark, city, state, pincode };
-  const user = {firstName,lastName,contactNumber,userEmail,password,role,address};
+  const user = {id,firstName,lastName,contactNumber,userEmail,role,address,password};
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -39,33 +36,30 @@ const RegisterForm = () => {
     // }
     console.log("sending",user);
     if(dataIsCorrect === true){
-      custService.createAccount(user)
+      userService.updateUser(user)
       .then(response => {
-          console.log("User added successfully", response.data);
-          setDataAdded("Registration Successful");
-          sleep(3000).then(r=>{
-          navigate('/api/psd/user');
-          });
+        setDataAdded("Updation Done Successfully");
+          localStorage.removeItem('user');
+          localStorage.setItem('user',JSON.stringify(response.data));
       })
       .catch(error => {
-          console.log('Something went wrong', error);
-          setDataAdded("Error While Registration");
+        setDataAdded("Error While Updating Account");
       })
     } 
 };
 useEffect(() => {
   if(Object.keys(errors).length === 0 && !dataIsCorrect){
-      setDataIsCorrect(true)
+      setDataIsCorrect(true);
   }
 }, [dataIsCorrect, errors]);
-  return (
-    <>
-        {dataAdded && <h3 class="alert alartbox alert-primary" role="alert">{dataAdded}</h3>}
+  
+return (
+  <>
+  {dataAdded && <h3 class="alert alartbox alert-primary" role="alert">{dataAdded}</h3>}
     <div className="wrapper">
-     
       <div className="app-wrapper">
         <div>
-          <h2 className="title">Register Account</h2>
+          <h2 className="title">Update Profile</h2>
         </div>
         <form className="form-wrapper">
           <div className="row">
@@ -128,19 +122,6 @@ useEffect(() => {
           </div>
           <div className="row">
             <div className="col">
-              <div className="password">
-                <label className="label">Password</label>
-                <input
-                  className="input"
-                  type="password"
-                  name="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                {errors.password && <p className="error">{errors.password}</p>}
-              </div>
-            </div>
-            <div className="col">
               <div className="name">
                 <label className="label">Plot No.</label>
                 <input
@@ -153,6 +134,7 @@ useEffect(() => {
                 {errors.plotNumber && <p className="error">{errors.plotNumber}</p>}
               </div>
             </div>
+            <div className="col"></div>
           </div>
           <div className="row">
             <div className="col">
@@ -212,14 +194,13 @@ useEffect(() => {
           </div>
           <div>
             <button className="submit" onClick={handleFormSubmit}>
-              Register
+              Update
             </button>
           </div>
         </form>
       </div>
     </div>
     </>
-
   );
 };
 

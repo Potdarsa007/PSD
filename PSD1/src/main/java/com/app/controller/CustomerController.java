@@ -134,12 +134,12 @@ public class CustomerController {
 		{
 		cust_msg.setTo(cust.getUserEmail());
 		cust_msg.setSubject("Book Service");
-		cust_msg.setText("Dear "+cust.getFirstName()+" "+cust.getLastName() +", \nYour request has been processed.\nEmployee assigned for your service\n"+employee+"\nHappy Service!! \n\nRegards\nServiceJunction");
+		cust_msg.setText("Dear "+cust.getFirstName()+" "+cust.getLastName() +", \nYour request has been processed.\nEmployee assigned for your service\n"+employee+"\nHappy Service!! \n\nRegards\nTeam PSD.");
 		javasender.send(cust_msg);
 		
 		emp_msg.setTo(employee.getEmpEmail());
 		emp_msg.setSubject("New Assigned Service");
-		emp_msg.setText("Dear "+employee.getFirstName()+" "+employee.getLastName() +", \nPlease find the customer details for the requested service\n"+cust+"\nHappy Service!! \n\nRegards\nServiceJunction");
+		emp_msg.setText("Dear "+employee.getFirstName()+" "+employee.getLastName() +", \nPlease find the customer details for the requested service\n"+cust+"\nHappy Service!! \n\nRegards\nTeam PSD.");
 		javasender.send(emp_msg);
 		});
 		return ResponseEntity.status(HttpStatus.OK).body(employee);
@@ -185,9 +185,24 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/generatedbill/{id}")
-	public ResponseEntity<?> GenerateBill(@PathVariable(name="id") int orderId)
+	public String GenerateBill(@PathVariable(name="id") int orderId) throws Exception
+	
 	{
-		return ResponseEntity.status(HttpStatus.OK).body(cust_service.serviceCompleted(orderId));
+		Order ord= cust_service.PayService(orderId);
+		double amt=(ord.getAmount());
+		var client=new RazorpayClient("rzp_test_h3M6Y3VVHWy4oR", "wU8o0qnNBBrjOUmC4N7DKTuM");
+		
+		
+		JSONObject options = new JSONObject();
+		options.put("amount", amt*100);
+		options.put("currency", "INR");
+		options.put("receipt", "txn_123456");
+		//creating an order
+		com.razorpay.Order order = client.Orders.create(options);
+		System.out.println(order);
+		
+		return order.toString();
+		
 	}
 	
 	

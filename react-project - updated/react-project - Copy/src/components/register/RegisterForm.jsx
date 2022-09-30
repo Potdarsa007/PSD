@@ -29,7 +29,7 @@ const RegisterForm = () => {
 
   const address = { plotNumber, landmark, city, state, pincode };
   const user = {firstName,lastName,contactNumber,userEmail,password,role,address};
-
+//The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur
   const handleFormSubmit = (event) => {
     event.preventDefault();
     //setRole("CUSTOMER");

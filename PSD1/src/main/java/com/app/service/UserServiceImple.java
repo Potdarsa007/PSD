@@ -87,6 +87,15 @@ public class UserServiceImple implements IUserService{
 		orderRepo.updateCustId(id);
 		user_repo.deleteById(id);
 	}
+	
+	@Override
+	public Order PayService(int orderId) 
+	{
+		Order order= orderRepo.findById(orderId).orElseThrow(()->new UserNotFoundException("Order not Found"));
+		
+			return order;
+	
+	}
 
 	@Override
 	public User updateCustomer(User cust) 
